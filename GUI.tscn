@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://GUI.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/zig_____.ttf" type="DynamicFontData" id=2]
@@ -11,9 +11,9 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=5]
 
-size = 88
+size = 40
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 2 )
@@ -22,6 +22,14 @@ _sections_unfolded = [ "Font", "Settings" ]
 [sub_resource type="DynamicFont" id=3]
 
 size = 32
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 2 )
+_sections_unfolded = [ "Font", "Settings" ]
+
+[sub_resource type="DynamicFont" id=2]
+
+size = 88
 use_mipmaps = false
 use_filter = false
 font_data = ExtResource( 2 )
@@ -51,8 +59,9 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = -1.0
+margin_top = 1.0
 margin_right = 605.0
-margin_bottom = 1030.0
+margin_bottom = 1031.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
@@ -79,12 +88,65 @@ size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 1 )
 text = "0"
+align = 1
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="MainText" type="Label" parent="." index="2"]
+[node name="HighScoreMainCounter" type="Label" parent="." index="2"]
+
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+margin_left = 112.0
+margin_top = 131.0
+margin_right = 163.0
+margin_bottom = 196.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 5 )
+text = "0"
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="HighScoreMainText" type="Label" parent="HighScoreMainCounter" index="0"]
+
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -373.5
+margin_top = -16.5
+margin_right = 27.5
+margin_bottom = 29.5
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+custom_fonts/font = SubResource( 3 )
+text = "High Score:"
+align = 1
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "custom_colors", "custom_fonts" ]
+
+[node name="MainText" type="Label" parent="." index="3"]
 
 anchor_left = 0.5
 anchor_top = 0.5
@@ -107,16 +169,16 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="BeginText" type="Label" parent="." index="3"]
+[node name="BeginText" type="Label" parent="." index="4"]
 
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -210.0
-margin_top = -38.5
+margin_top = -52.5
 margin_right = 210.0
-margin_bottom = 38.5
+margin_bottom = 52.5
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -124,7 +186,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
 custom_fonts/font = SubResource( 3 )
-text = "How long can you hit the ball?"
+text = "How many times can you hit the ball?"
 align = 1
 autowrap = true
 percent_visible = 1.0
@@ -132,16 +194,16 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="HighScore" type="Label" parent="." index="4"]
+[node name="HighScore" type="Label" parent="." index="5"]
 
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -210.0
+margin_left = -211.0
 margin_top = -375.0
-margin_right = 210.0
-margin_bottom = -298.0
+margin_right = 209.0
+margin_bottom = -339.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 2
@@ -157,7 +219,7 @@ lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_colors", "custom_fonts" ]
 
-[node name="ExitButton" type="Button" parent="." index="5"]
+[node name="ExitButton" type="Button" parent="." index="6"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -185,7 +247,7 @@ flat = true
 align = 1
 _sections_unfolded = [ "Visibility" ]
 
-[node name="StartButton" type="Button" parent="." index="6"]
+[node name="StartButton" type="Button" parent="." index="7"]
 
 anchor_left = 0.5
 anchor_top = 1.0

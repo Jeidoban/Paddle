@@ -21,7 +21,12 @@ func _on_Paddle_body_entered(body):
 		# Take the linear velocity vector of the ball, reflectsx it (goes in opposite direction),
 		# rotate it randomly, and multiply the Y coordinate by small number.
 		# This increases the Y velocity slightly every hit.
-		body.linear_velocity = body.linear_velocity.reflect(Vector2(-1, 0)).rotated(rand_range(-0.35, 0.35))
-		body.linear_velocity.y = body.linear_velocity.y * 1.05
+		body.linear_velocity = body.linear_velocity.reflect(Vector2(-1, 0)).rotated(rand_range(-0.35, 0.35)) * 1.05
+		var x = body.linear_velocity.x
+		var y = body.linear_velocity.y
+		if (abs(x) / abs(y)) > 1.1:
+			body.linear_velocity.x = y 
+			body.linear_velocity.y = abs(x) * -1
+
 
 	

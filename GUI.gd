@@ -10,6 +10,9 @@ func _ready():
 	
 func change_score(score):
 	$ScoreCounter.set_text(str(score))
+	
+func change_high_score(score):
+	$HighScoreMainCounter.set_text(str(score))
 
 func _on_ExitButton_pressed():
 	emit_signal("exit_pressed")
