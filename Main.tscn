@@ -1,0 +1,92 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://Ball.tscn" type="PackedScene" id=2]
+[ext_resource path="res://GUI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Paddle.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Wall.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Trigger.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/sounds/boop.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/sounds/game_over.wav" type="AudioStream" id=8]
+
+[node name="Main" type="Node" index="0"]
+
+script = ExtResource( 1 )
+Ball = ExtResource( 2 )
+
+[node name="GUI" parent="." index="0" instance=ExtResource( 3 )]
+
+layer = -1
+
+[node name="Paddle" parent="." index="1" instance=ExtResource( 4 )]
+
+angular_damp = 0.1
+speed = null
+
+[node name="Wall" parent="." index="2" instance=ExtResource( 5 )]
+
+position = Vector2( 698.902, 501.779 )
+
+[node name="Wall3" parent="." index="3" instance=ExtResource( 5 )]
+
+position = Vector2( 299.043, -96.7422 )
+rotation = 1.5708
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Wall2" parent="." index="4" instance=ExtResource( 5 )]
+
+position = Vector2( -96.782, 507.475 )
+
+[node name="Trigger" parent="." index="5" instance=ExtResource( 6 )]
+
+position = Vector2( 301.298, 1257.65 )
+
+[node name="Position2D" type="Position2D" parent="." index="6"]
+
+position = Vector2( 302.685, 134.915 )
+
+[node name="ResetTimer" type="Timer" parent="." index="7"]
+
+process_mode = 1
+wait_time = 1.5
+one_shot = true
+autostart = false
+
+[node name="Boop" type="AudioStreamPlayer" parent="." index="8"]
+
+stream = ExtResource( 7 )
+volume_db = -2.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="GameOver" type="AudioStreamPlayer" parent="." index="9"]
+
+stream = ExtResource( 8 )
+volume_db = -3.0
+pitch_scale = 1.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+
+[node name="HighScoreCounter" type="Timer" parent="." index="10"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[connection signal="exit_pressed" from="GUI" to="." method="exit_game"]
+
+[connection signal="start_pressed" from="GUI" to="." method="start_game"]
+
+[connection signal="hit" from="Paddle" to="." method="_on_Paddle_hit"]
+
+[connection signal="trigger" from="Trigger" to="." method="start_game"]
+
+[connection signal="timeout" from="ResetTimer" to="." method="_on_ResetTimer_timeout"]
+
+[connection signal="timeout" from="HighScoreCounter" to="." method="_on_HighScoreCounter_timeout"]
+
+
