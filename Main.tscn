@@ -9,7 +9,7 @@
 [ext_resource path="res://assets/sounds/boop.wav" type="AudioStream" id=7]
 [ext_resource path="res://assets/sounds/game_over.wav" type="AudioStream" id=8]
 
-[node name="Main" type="Node" index="0"]
+[node name="Main" type="Node"]
 
 script = ExtResource( 1 )
 Ball = ExtResource( 2 )
@@ -20,12 +20,13 @@ layer = -1
 
 [node name="Paddle" parent="." index="1" instance=ExtResource( 4 )]
 
+position = Vector2( 311.434, 940.919 )
 angular_damp = 0.1
 speed = null
 
 [node name="Wall" parent="." index="2" instance=ExtResource( 5 )]
 
-position = Vector2( 698.902, 501.779 )
+position = Vector2( 697.013, 501.779 )
 
 [node name="Wall3" parent="." index="3" instance=ExtResource( 5 )]
 
@@ -39,7 +40,7 @@ position = Vector2( -96.782, 507.475 )
 
 [node name="Trigger" parent="." index="5" instance=ExtResource( 6 )]
 
-position = Vector2( 301.298, 1257.65 )
+position = Vector2( 298.332, 1091.56 )
 
 [node name="Position2D" type="Position2D" parent="." index="6"]
 
